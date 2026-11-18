@@ -1,13 +1,17 @@
 """数据库连接与初始化。"""
 from __future__ import annotations
 
+import os
 import sqlite3
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent      # backend/
 PROJECT_DIR = BASE_DIR.parent                          # zujuan/
-DATA_DIR = PROJECT_DIR / "data"
-DB_PATH = DATA_DIR / "zujuan.db"
+
+# 部署时用 ZUJUAN_DATA_DIR 指向持久盘（如 Render 的 /var/data）；
+# 不设则用项目内的 data/，本地开发行为不变。
+DATA_DIR = Path(os.environ.get("ZUJUAN_DATA_DIR") or (PROJECT_DIR / "data"))
+DB_PATH = Path(os.environ.get("ZUJUAN_DB") or (DATA_DIR / "zujuan.db"))
 SCHEMA_PATH = Path(__file__).with_name("schema.sql")
 
 
