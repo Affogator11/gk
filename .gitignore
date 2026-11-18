@@ -1,6 +1,5 @@
-data/*.db
-data/*.db-wal
-data/*.db-shm
+data/
+.gh_token
 backend/vendor/
 **/__pycache__/
 scripts/node_modules/
