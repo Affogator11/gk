@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>知卷 · 智能组卷工作台</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <div class="brand">
+      <span class="mark">卷</span>
+      <span class="brand-text"><b>知卷</b><small>智能组卷工作台</small></span>
+    </div>
+    <nav class="nav" id="nav">
+      <a href="#/workbench" data-route="workbench"><span class="dot"></span>组卷工作台</a>
+      <a href="#/bank" data-route="bank"><span class="dot"></span>题库</a>
+      <a href="#/papers" data-route="papers"><span class="dot"></span>试卷库</a>
+    </nav>
+    <div class="side-foot">
+      <div class="foot-row"><span>题库</span><b id="stQ">–</b></div>
+      <div class="foot-row"><span>细目表</span><b id="stB">–</b></div>
+      <div class="foot-row"><span>已组卷</span><b id="stP">–</b></div>
+      <p class="foot-note">演示数据仅供功能验证<br />请勿用于真实考试</p>
+    </div>
+  </aside>
+
+  <main class="main" id="view"></main>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-card">
+    <header><h3 id="modalTitle">换一道题</h3><button class="icon-btn" id="modalClose">×</button></header>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
