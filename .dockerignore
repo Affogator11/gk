@@ -1,0 +1,17 @@
+.git
+.gh_token
+out
+shots
+.tmp
+.wheels
+scripts/node_modules
+backend/vendor
+backend/data
+data
+__pycache__
+*.pyc
+*.db
+*.db-wal
+*.db-shm
+*.docx
+*.zip
