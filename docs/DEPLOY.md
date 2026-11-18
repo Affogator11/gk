@@ -46,7 +46,7 @@
 
 3. **Environment Variables** 加两条：
    - `PYTHON_VERSION` = `3.12.6`
-   - `ZUJUAN_DATA_DIR` = `/var/data`
+   - `ZUJUAN_DATA_DIR` = `/opt/render/project/src/data`（免费实例可写但重启即清空）
 4. **Create Web Service**
 
 ### A3. 免费版的三个限制（务必知道）
@@ -56,7 +56,8 @@
 3. 国内访问速度一般，首屏 1–3 秒
 
 要让试卷长期保存，升到 Starter（约 $7/月）后在服务 → **Disks** 加一块 1GB 盘、
-Mount Path 填 `/var/data`（`render.yaml` 里已留好注释）。
+Mount Path 填 `/var/data`，同时把环境变量 `ZUJUAN_DATA_DIR` 改成 `/var/data`
+（`render.yaml` 里已留好注释，改完重新部署即可）。
 
 ---
 
