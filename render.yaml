@@ -13,7 +13,7 @@ services:
       - key: PYTHON_VERSION
         value: "3.12.6"
       - key: ZUJUAN_DATA_DIR
-        value: /var/data
+        value: /opt/render/project/src/data
     # 免费实例不支持持久盘，重启会重新灌示例数据。
     # 升级到 Starter 后取消下面 4 行注释，试卷才会长期保存：
     # disk:
