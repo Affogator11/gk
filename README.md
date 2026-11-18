@@ -198,3 +198,22 @@ node scripts\ui_check2.mjs  # 完整流程：填表 → 生成 → 打开试卷�
 ```
 
 `ui_check*` 依赖 `scripts/node_modules/jsdom`（用 `--cache .npm-cache` 装在本地）。
+
+---
+
+## 11. 部署上线
+
+单进程应用：FastAPI 同时提供 API 与 `web/` 静态页，只需部署一个服务、一个端口。
+
+| 文件 | 用途 |
+|---|---|
+| `requirements.txt` | 生产依赖（fastapi / uvicorn / pydantic / python-docx） |
+| `Dockerfile` + `.dockerignore` | 单容器镜像，任何云服务器可跑 |
+| `render.yaml` | Render 蓝图，连仓库后一键建服务 |
+| `Procfile` | Railway / Heroku 类平台 |
+| `docs/DEPLOY.md` | 完整步骤、环境变量、Nginx 反代、排错表 |
+
+最快的路子：Render → New + → Blueprint → 选本仓库 → Apply，3 分钟后得到一个公网地址。
+
+数据落在 `ZUJUAN_DATA_DIR`（默认项目内 `data/`），部署时指向持久盘即可长期保存。
+免费实例没有持久盘，重启会回到初始题库——这是托管平台的限制，不是程序问题。
