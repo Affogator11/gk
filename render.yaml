@@ -1,0 +1,22 @@
+# Render 蓝图：连接仓库后自动创建 Web 服务
+# 用法见 docs/DEPLOY.md
+services:
+  - type: web
+    name: zujuan
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.6"
+      - key: ZUJUAN_DATA_DIR
+        value: /var/data
+    # 免费实例不支持持久盘，重启会重新灌示例数据。
+    # 升级到 Starter 后取消下面 4 行注释，试卷才会长期保存：
+    # disk:
+    #   name: zujuan-data
+    #   mountPath: /var/data
+    #   sizeGB: 1
