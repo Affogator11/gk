@@ -1,0 +1,14 @@
+data/*.db
+data/*.db-wal
+data/*.db-shm
+backend/vendor/
+**/__pycache__/
+scripts/node_modules/
+scripts/.npm-cache/
+scripts/package.json
+scripts/package-lock.json
+shots/
+*.docx
+out/
+.wheels/
+.tmp/
